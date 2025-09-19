@@ -1,58 +1,62 @@
-%============================================================================%
-%
-%	CV COMMANDS
-%
-%============================================================================%
+% ╭──────────────────────────────────────────────────────────╮
+% │                       CV COMMANDS                        │
+% ╰──────────────────────────────────────────────────────────╯
 
-%----------------------------------------------------------------------------------------
-%	 CV LIST
-%----------------------------------------------------------------------------------------
+% ╭──────────────────────────────────────────────────────────╮
+% │                         CV LIST                          │
+% ╰──────────────────────────────────────────────────────────╯
 
 % renders a standard latex list but abstracts away the environment definition (begin/end)
 \newcommand{\cvlist}[1] {
 	\begin{itemize}{#1}\end{itemize}
 }
 
-%----------------------------------------------------------------------------------------
-%	 CV TEXT
-%----------------------------------------------------------------------------------------
+% ╭──────────────────────────────────────────────────────────╮
+% │                         CV TEXT                          │
+% ╰──────────────────────────────────────────────────────────╯
 
 % base class to wrap any text based stuff here. Renders like a paragraph.
 % Allows complex commands to be passed, too.
 % param 1: *any
 \newcommand{\cvtext}[1] {
-	\begin{tabular*}{1\mpwidth}{p{0.98\mpwidth}}
-		\parbox{1\mpwidth}{#1}
-	\end{tabular*}
+	\begin{tabular}{@{}p{0.98\mpwidth}}
+	\parbox{\mpwidth}{#1}\hfill
+	\end{tabular}
 }
+
+
 \newcommand{\cvtextsmall}[1] {
-	\begin{tabular*}{0.8\mpwidth}{p{0.8\mpwidth}}
+	\setlength\tabcolsep{0pt}
+	\begin{tabularx}{0.8\mpwidth}{X}
 		\parbox{0.8\mpwidth}{#1}
-	\end{tabular*}
+	\end{tabularx}
 }
-%----------------------------------------------------------------------------------------
-%	CV SECTION
-%----------------------------------------------------------------------------------------
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                        CV SECTION                        │
+% ╰──────────────────────────────────────────────────────────╯
 
 % Renders a a CV section headline with a nice underline in main color.
 % param 1: section title
 \newlength{\barw}
+\newlength{\bart}
 \newcommand{\cvsection}[1] {
-	\vspace{14pt}
-	\settowidth{\barw}{\textbf{\LARGE #1}}
+	\vspace{7pt}
+	\setlength{\barw}{0.98\mpwidth}
+	\setlength{\bart}{0.96\barw}
 	\cvtext{
-		\textbf{\LARGE{\textcolor{darkcol}{#1}}}\\[-4pt]
-		\textcolor{accentcol}{ \rule{\barw}{1.5pt} } \\
-	}
+		\textbf{\Large{\textcolor{darkcol}{#1}}}\\\vspace{-7pt}
+		\textcolor{accentcol}{\rule{\bart}{1.5pt}}
+	}\medskip
 }
 
 \newcommand{\cvsubsection}[1] {
-	\vspace{14pt}
-	\settowidth{\barw}{\textbf{\Large #1}}
+	\vspace{8pt}
+	\settowidth{\barw}{\textbf{\large #1}}
 	\cvtext{
-		\textbf{\Large{\textcolor{darkcol}{#1}}}\\[-4pt]
-		\textcolor{accentcol}{ \rule{\barw}{1.5pt} } \\
-	}
+		\textbf{\large{\textcolor{darkcol}{#1}}}\\\vspace{-7pt}
+		\textcolor{accentcol}{ \rule{\barw}{1.5pt} }
+	}\medskip
 }
 
 \newcommand{\cvheadline}[1] {
@@ -70,9 +74,10 @@
 		 
 	}
 }
-%----------------------------------------------------------------------------------------
-%	META SKILL
-%----------------------------------------------------------------------------------------
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                        META SKILL                        │
+% ╰──────────────────────────────────────────────────────────╯
 
 % Renders a progress-bar to indicate a certain skill in percent.
 % param 1: name of the skill / tech / etc.
@@ -91,9 +96,9 @@
 }
 
 
-%----------------------------------------------------------------------------------------
-%	 CV EVENT
-%----------------------------------------------------------------------------------------
+% ╭──────────────────────────────────────────────────────────╮
+% │                         CV EVENT                         │
+% ╰──────────────────────────────────────────────────────────╯
 
 % Renders a table and a paragraph (cvtext) wrapped in a parbox (to ensure minimum content
 % is glued together when a pagebreak appears).
@@ -107,26 +112,38 @@
 % param 6: technologies include (optional)
 % param 7: achievements (optional)
 \newcommand{\cvevent}[7] {
-	
 	% we wrap this part in a parbox, so title and description are not separated on a pagebreak
 	% if you need more control on page breaks, remove the parbox
 	\parbox{\mpwidth}{
-		\begin{tabular*}{1\mpwidth}{p{0.66\mpwidth}  r}
-	 		\textcolor{black}{\textbf{#2}} & \colorbox{accentcol}{\makebox[0.32\mpwidth]{\textcolor{white}{\textbf{#1}}}} \\
-			\textcolor{maincol}{#3} & \\
-		\end{tabular*}\\[8pt]
-	
-		\ifthenelse{\isempty{#4}}{}{
-			\cvtext{#4}\\
+		\setlength\tabcolsep{0pt}
+		\begin{tabularx}{0.98\mpwidth}{p{0.66\mpwidth}>{\raggedleft\arraybackslash}X}
+			\textcolor{black}{\large\textbf{#2}} & \colorbox{accentcol}{\makebox[\mpwidth]{\textcolor{white}{\textbf{#1}}}}\\
+			\textcolor{maincol}{\textbf{#3}} & \hfill \\[2pt]
+			\multicolumn{2}{l}{\parbox{0.98\mpwidth}{#4}}
+		\end{tabularx}
+		\vspace{10pt}
 		}
 	}
-	\vspace{14pt}
-}
+
+\newcommand{\cvlinkevent}[3] {
+	% we wrap this part in a parbox, so title and description are not separated on a pagebreak
+	% if you need more control on page breaks, remove the parbox
+	\parbox{\mpwidth}{
+		\setlength\tabcolsep{0pt}
+		\begin{tabularx}{0.98\mpwidth}{p{0.62\mpwidth}>{\raggedleft\arraybackslash}X}
+			\textcolor{black}{\large\textbf{#2}} & \textcolor{maincol}{\textbf{#1}}\\
+			\multicolumn{2}{l}{\parbox{0.98\mpwidth}{#3}}
+		\end{tabularx}
+		\vspace{10pt}
+		}
+	}
 
 
-%----------------------------------------------------------------------------------------
-%	 CV META EVENT
-%----------------------------------------------------------------------------------------
+
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                      CV META EVENT                       │
+% ╰──────────────────────────────────────────────────────────╯
 
 % Renders a CV event on the sidebar
 % param 1: title
@@ -134,22 +151,26 @@
 % param 3: customer, employer, etc,. (optional)
 % param 4: info text (optional)
 \newcommand{\cvmetaevent}[4] {
-	\textcolor{maincol} { \cvtext{\textbf{\begin{flushleft}#1\end{flushleft}}}}
+	\textcolor{black} { \cvtext{\large\textbf{#1}}}
 
-	\ifthenelse{\isempty{#2}}{}{
-	\textcolor{black} {\cvtext{\textbf{#2}} }
+	\ifstrempty{#2}{}{
+	\textcolor{maincol}{\cvtext{\textbf{#2}}}
 	}
 
-	\ifthenelse{\isempty{#3}}{}{
-		\cvtext{{ \textcolor{maincol} {#3} }}\\
+	\ifstrempty{#3}{}{
+		\cvtext{{\textcolor{black}{#3}}}
 	}
 
-	\cvtext{#4}\\[14pt]
+	% wtf?
+	\ifstrempty{#4}{}{
+		\parbox{\linewidth}{\cvtext{#4}}
+	}
 }
+% 328.51192 - 347.46266
 
-%---------------------------------------------------------------------------------------
-%	QR CODE
-%----------------------------------------------------------------------------------------
+% ╭──────────────────────────────────────────────────────────╮
+% │                         QR CODE                          │
+% ╰──────────────────────────────────────────────────────────╯
 
 % Renders a qrcode image (centered, relative to the parentwidth)
 % param 1: percent width, from 0 to 1
@@ -187,7 +208,3 @@
 \node[yshift=0.32cm,xshift=9cm] at (current page.south) {\fontsize{10}{10}\selectfont \textbf{\thepage}};
 \end{tikzpicture}%
 }
-
-
-%=====================================
-%============================================================================%
