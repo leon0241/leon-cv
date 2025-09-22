@@ -3,11 +3,10 @@
 # Init directory
 
 current_date=$(date +%m-%y)
-echo ${current_date}
-
 read -p "Enter the Company Name: " company_name
 dir_name="${current_date} - ${company_name}"
-file_name="CV - Leon Lee - ${company_name}"
+cv_file_name="CV - Leon Lee - ${company_name}"
+cl_file_name="Cover Letter - Leon Lee - ${company_name}"
 
 folder_loc="${PWD}/bank/${dir_name}"
 
@@ -18,25 +17,22 @@ mkdir -p "${folder_loc}"/sections/
 
 # Copying files
 
-PS3='What type of company are you applying for? '
+printf "\nWhat type of company are you applying for?\n"
+PS3="> "
 options=("Tech" "CS" "Maths" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
         "Tech")
-            # Grep in tech files and 
-            cp "${PWD}/templates/cv-tech.tex" "${folder_loc}/${file_name}.tex"
-            parts= ls -d "$PWD"/templates/sections/* | grep tech | xargs -I '{}' cp '{}' "${folder_loc}"/sections/
+            type=tech
             break
             ;;
         "CS")
-            cp "${PWD}/templates/cv-cs.tex" "${folder_loc}"
-            parts= ls -d "$PWD"/templates/sections/* | grep cs | xargs -I '{}' cp '{}' "${folder_loc}"/sections/
+            type=cs
             break
             ;;
         "Maths")
-            cp "${PWD}/templates/cv-maths.tex" "${folder_loc}"
-            parts= ls -d "$PWD"/templates/sections/* | grep math | xargs -I '{}' cp '{}' "${folder_loc}"/sections/
+            type=math
             break
             ;;
         "Quit")
@@ -46,4 +42,29 @@ do
     esac
 done
 
-echo $type $company_name
+# Copy CV, and all section files with "type" prefix
+cp "${PWD}/templates/cv-${type}.tex" "${folder_loc}/${cv_file_name}.tex"
+parts= ls -d "$PWD"/templates/sections/* | grep "${type}" | xargs -I '{}' cp '{}' "${folder_loc}"/sections/
+
+# Rename section files
+perl-rename "s/(cs|math|tech)-//" "${folder_loc}"/sections/*.tex
+
+# Optional create cover letter
+printf "\nCreate a cover letter?\n"
+PS3='> '
+options=("Yes" "No")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Yes")
+            cp "${PWD}/templates/cover-letter.tex" "${folder_loc}/${cl_file_name}.tex"
+            break
+            ;;
+        "No")
+            break
+            ;;
+    esac
+done
+
+printf "\nFiles Created! Location:\n"
+printf "\'${folder_loc}\'"
