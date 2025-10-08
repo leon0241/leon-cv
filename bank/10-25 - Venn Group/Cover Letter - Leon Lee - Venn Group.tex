@@ -1,0 +1,79 @@
+\documentclass[10pt,english]{article}	
+
+\usepackage[document]{ragged2e}
+
+\usepackage{../../preamble}
+\usepackage{../../customs}
+
+\begin{document}
+
+\columnratio{0.31}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+\colseprulecolor{white}
+
+
+% LEBENSLAUF HIERE
+\AtBeginShipoutFirst{\Header{Cover Letter}\Footer{1}}
+\AtBeginShipout{\AtBeginShipoutAddToBox{\Header{Cover Letter}\Footer{2}}}
+
+\newpage
+
+\colseprulecolor{lightcol}
+\columnratio{0.67}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+
+% \fcolorbox{white}{white}{
+\begin{minipage}[c][2.5cm][c]{1\mpwidth}
+	\LARGE{\textbf{\textcolor{maincol}{En-Liang (Leon) Lee}}} \\[2pt]
+	\normalsize\icontext{MobilePhone}{16}{+44 7392 381253}{black}\\
+	\iconemail{Envelope}{16}{enliang.leon.lee@gmail.com}{black}\\
+\end{minipage}
+
+\bigskip
+
+\begin{minipage}[c][2.5cm][c]{1\mpwidth}
+	\today
+	\bigskip
+
+	[Hiring Manager]
+
+	[Company Name]
+
+	[Address]
+
+	[Postcode]
+
+	[City]
+
+	[Country]
+\end{minipage}
+\bigskip\bigskip
+
+Dear [Hiring Manager],
+\medskip
+
+I am writing to express my interest in [JOB]. As someone with a strong background in Theatrical Lighting Design, and a degree in Computer Science, I believe I have the skills to perform in this job.
+
+\medskip
+
+From my degree studying at the University of Edinburgh, I have developed good discipline for balancing workloads, as well as a strong foundation to data science and analysis. I have a lot of experience in applying data analysis in Python, and have experience in other languages like Java as well. I have also done a lot of mathematics experience including in Differential Equations and several variable calculus which I believe provides a good basis to work in this profession.
+
+\medskip
+
+I have 4 years of experience in technical theatre from volunteering at the Edinburgh University's student theatre society, Bedlam, and from that I have gained a strong understanding of theatrical lighting. I have designed many theatrical rigs, and have Lighting Designer of many shows. I also have experience using the CAD software Vectorworks for creating building designs for Theatre Auditoriums, and have created a scale model of the Bedlam Theatre to aide creation of lighting rigs. I believe these abilities can transfer into Exterior Lighting, and from my stem-based degree I believe I can adapt to whatever other information I would require.
+
+\medskip
+
+From working at the Edinburgh Fringe as Technical Manager of Bedlam Fringe, I have developed good interpersonal skills, as I was partially responsible for communication with the 23 shows performing at the theatre. I was the primary contact to the companies for technical requirements, both sorting out anything in the pre-production before the festival, and any issues that happened during the festival. Communication within the management team was also important for the festival to run smoothly, and I kept in good contact with the Venue Manager, Programmer, and Front of House Manager all throughout the Fringe to ensure there were no problems.
+
+\medskip
+
+I hope my experience would be valuable, and thank you for looking at my application. I look forward to hearing from you.
+\medskip
+
+Sincerely,
+
+Leon Lee.
+\end{document}

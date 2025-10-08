@@ -1,0 +1,81 @@
+\documentclass[10pt,english]{article}	
+
+\usepackage[document]{ragged2e}
+
+\usepackage{../../preamble}
+\usepackage{../../customs}
+
+\begin{document}
+
+\columnratio{0.31}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+\colseprulecolor{white}
+
+
+% LEBENSLAUF HIERE
+\AtBeginShipoutFirst{\Header{CV}\Footer{1}}
+\AtBeginShipout{\AtBeginShipoutAddToBox{\Header{CV}\Footer{2}}}
+
+\newpage
+
+\colseprulecolor{lightcol}
+\columnratio{0.67}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+
+	\fcolorbox{white}{white}{\begin{minipage}[c][1.5cm][c]{1\mpwidth}
+			\LARGE{\textbf{\textcolor{maincol}{En-Liang (Leon) Lee}}} \\[2pt]
+	\end{minipage}} \\
+\begin{paracol}{2}
+\begin{leftcolumn}
+
+\cvtext{
+	BsC Computer Science and Mathematics Graduate. Graduated with a 2:1 Classification, while balancing work at the University's Theatre society.
+}
+
+% ── Education ─────────────────────────────────────────────────────────
+\vspace{10pt}
+\cvsection{Education}
+\subfile{sections/education.tex}
+
+% ── Work Experience ───────────────────────────────────────────────────
+\vspace{-20pt}
+\cvsection{Work experience}
+
+\subfile{sections/work-exp.tex}
+
+% ── Projects ──────────────────────────────────────────────────────────
+
+\cvsection{Projects}
+\subfile{sections/projects.tex}
+
+\end{leftcolumn}
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                       RIGHT COLUMN                       │
+% ╰──────────────────────────────────────────────────────────╯
+
+\begin{rightcolumn}
+
+% ── Skills ────────────────────────────────────────────────────────────
+
+\cvsection{Skills}
+\subfile{sections/skills.tex}
+
+
+% ── Contact ───────────────────────────────────────────────────────────
+\vfill
+\cvsection{Contact}
+
+\icontext{MapMarker}{16}{9 Marmion Crescent, EH165QU}{black}\\[6pt]
+\icontext{MobilePhone}{16}{+44 7392 381253}{black}\\[6pt]
+\iconemail{Envelope}{16}{enliang.leon.lee@gmail.com}{black}\\[6pt]
+\iconhref{Github}{16}{github.com/leon0241}{https://www.github.com/leon0241}{black}\\[6pt]
+
+
+\end{rightcolumn}
+\end{paracol}
+
+
+\end{document}

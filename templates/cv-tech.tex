@@ -2,8 +2,8 @@
 
 \usepackage[document]{ragged2e}
 
-\usepackage{preamble}
-\usepackage{customs}
+\usepackage{../../preamble}
+\usepackage{../../customs}
 
 \begin{document}
 
@@ -19,39 +19,36 @@
 
 \newpage
 
-% ── Name ──────────────────────────────────────────────────────────────
 \colseprulecolor{lightcol}
 \columnratio{0.67}
 \setlength{\columnsep}{2.2em}
 \setlength{\columnseprule}{4pt}
 
 	\fcolorbox{white}{white}{\begin{minipage}[c][1.5cm][c]{1\mpwidth}
-			\LARGE{\textbf{\textcolor{maincol}{En-Liang (Leon) Lee}}}
-	\end{minipage}}
+			\LARGE{\textbf{\textcolor{maincol}{En-Liang (Leon) Lee}}} \\[2pt]
+	\end{minipage}} \\
 \begin{paracol}{2}
 \begin{leftcolumn}
 
-% ── Biography ─────────────────────────────────────────────────────────
-% \cvsection{Biography}
-%
-% \cvtext{
-% 	BsC Computer Science and Mathematics Graduate. Graduated from the University of Edinburgh with a 2:1 Classification. Interested in Technical Theatre and Networking.
-% }
+\cvtext{
+	BsC Computer Science and Mathematics Graduate with a passion in software development. Graduated with a 2:1 Classification, while balancing work at the University's Theatre society.
+}
 
-% ── Skills ────────────────────────────────────────────────────────────
-\cvsection{Skills}
-\subfile{sections/skills/skills-tech.tex}
-
+% ── Education ─────────────────────────────────────────────────────────
+\vspace{5pt}
+\cvsection{Education}
+\subfile{sections/education.tex}
 
 % ── Work Experience ───────────────────────────────────────────────────
-\cvsection{Work experience}
-\subfile{sections/work-experience/exp-tech.tex}
 
-\newpage
+\cvsection{Work experience}
+
+\subfile{sections/work-exp.tex}
 
 % ── Projects ──────────────────────────────────────────────────────────
+
 \cvsection{Projects}
-\subfile{sections/projects/pro-tech.tex}
+\subfile{sections/projects.tex}
 
 \end{leftcolumn}
 
@@ -61,13 +58,11 @@
 
 \begin{rightcolumn}
 
-% ── Technical Experience ──────────────────────────────────────────────
-\cvsection{Technical Experience}
-\subfile{sections/skills/tech-exp-tech.tex}
+% ── Skills ────────────────────────────────────────────────────────────
 
-% ── Education ─────────────────────────────────────────────────────────
-\cvsection{Education}
-\subfile{sections/education/edu-tech.tex}
+\cvsection{Skills}
+\subfile{sections/skills.tex}
+
 
 % ── Contact ───────────────────────────────────────────────────────────
 \vfill
@@ -78,6 +73,9 @@
 \iconemail{Envelope}{16}{enliang.leon.lee@gmail.com}{black}\\[6pt]
 \iconhref{Github}{16}{github.com/leon0241}{https://www.github.com/leon0241}{black}\\[6pt]
 
+
 \end{rightcolumn}
 \end{paracol}
+
+
 \end{document}

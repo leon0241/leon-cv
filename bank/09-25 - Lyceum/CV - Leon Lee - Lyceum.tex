@@ -1,0 +1,83 @@
+\documentclass[10pt,english]{article}	
+
+\usepackage[document]{ragged2e}
+
+\usepackage{../../preamble}
+\usepackage{../../customs}
+
+\begin{document}
+
+\columnratio{0.31}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+\colseprulecolor{white}
+
+
+% LEBENSLAUF HIERE
+\AtBeginShipoutFirst{\Header{CV}\Footer{1}}
+\AtBeginShipout{\AtBeginShipoutAddToBox{\Header{CV}\Footer{2}}}
+
+\newpage
+
+% ── Name ──────────────────────────────────────────────────────────────
+\colseprulecolor{lightcol}
+\columnratio{0.67}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+
+	\fcolorbox{white}{white}{\begin{minipage}[c][1.5cm][c]{1\mpwidth}
+			\LARGE{\textbf{\textcolor{maincol}{En-Liang (Leon) Lee}}}
+	\end{minipage}}
+\begin{paracol}{2}
+\begin{leftcolumn}
+
+% ── Biography ─────────────────────────────────────────────────────────
+% \cvsection{Biography}
+%
+% \cvtext{
+% 	BsC Computer Science and Mathematics Graduate. Graduated from the University of Edinburgh with a 2:1 Classification. Interested in Technical Theatre and Networking.
+% }
+
+% ── Skills ────────────────────────────────────────────────────────────
+\cvsection{Skills}
+\subfile{sections/skills.tex}
+
+
+% ── Work Experience ───────────────────────────────────────────────────
+\cvsection{Work experience}
+\subfile{sections/work-exp.tex}
+
+\newpage
+
+% ── Projects ──────────────────────────────────────────────────────────
+\cvsection{Projects}
+\subfile{sections/projects.tex}
+
+\end{leftcolumn}
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                       RIGHT COLUMN                       │
+% ╰──────────────────────────────────────────────────────────╯
+
+\begin{rightcolumn}
+
+% ── Technical Experience ──────────────────────────────────────────────
+\cvsection{Technical Experience}
+\subfile{sections/tech-exp.tex}
+
+% ── Education ─────────────────────────────────────────────────────────
+\cvsection{Education}
+\subfile{sections/education.tex}
+
+% ── Contact ───────────────────────────────────────────────────────────
+\vfill
+\cvsection{Contact}
+
+\icontext{MapMarker}{16}{9 Marmion Crescent, EH165QU}{black}\\[6pt]
+\icontext{MobilePhone}{16}{+44 7392 381253}{black}\\[6pt]
+\iconemail{Envelope}{16}{enliang.leon.lee@gmail.com}{black}\\[6pt]
+\iconhref{Github}{16}{github.com/leon0241}{https://www.github.com/leon0241}{black}\\[6pt]
+
+\end{rightcolumn}
+\end{paracol}
+\end{document}

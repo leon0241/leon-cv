@@ -1,0 +1,79 @@
+\documentclass[10pt,english]{article}	
+
+\usepackage[document]{ragged2e}
+
+\usepackage{../../preamble}
+\usepackage{../../customs}
+
+\begin{document}
+
+\columnratio{0.31}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+\colseprulecolor{white}
+
+
+% LEBENSLAUF HIERE
+\AtBeginShipoutFirst{\Header{Cover Letter}\Footer{1}}
+\AtBeginShipout{\AtBeginShipoutAddToBox{\Header{Cover Letter}\Footer{2}}}
+
+\newpage
+
+\colseprulecolor{lightcol}
+\columnratio{0.67}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+
+% \fcolorbox{white}{white}{
+\begin{minipage}[c][2.5cm][c]{1\mpwidth}
+	\LARGE{\textbf{\textcolor{maincol}{En-Liang (Leon) Lee}}} \\[2pt]
+	\normalsize\icontext{MobilePhone}{16}{+44 7392 381253}{black}\\
+	\iconemail{Envelope}{16}{enliang.leon.lee@gmail.com}{black}\\
+\end{minipage}
+
+\bigskip
+
+\begin{minipage}[c][2.5cm][c]{1\mpwidth}
+	\today
+	\bigskip
+
+	Stantec Inc.
+
+	Rotterdam House
+
+	116 Quayside
+
+	NE1 3DY
+
+	Newcastle upon Tyne
+
+	GB
+\end{minipage}
+\bigskip\bigskip
+
+Dear Sir or Madam,
+\medskip
+
+I am writing to express my interest in the role of a Graduate Geospatial Consultant. As someone with a strong background in Computer Science, I believe I have a good foundation to perform in this job, and the perseverance to learn the necessary skills needed to excel. I am interested in the water sector, and am passionate about applying my knowledge of data science into the real world to make a positive impact.
+
+\medskip
+
+From my degree studying at the University of Edinburgh, I have developed good discipline for balancing workloads, as well as a strong foundation to data science and analysis. I have a lot of experience in applying data analysis in Python, including using Jupyter, and have experience in other languages like Java as well. I have also done a lot of mathematics experience including in Differential Equations and several variable calculus which I believe provides a good basis to work in this profession.
+
+\medskip
+
+I have 4 years of experience in technical theatre from volunteering at the Edinburgh University's student theatre society, Bedlam, where I have worked as Technical Manager of many shows. I enjoy pushing my limits in the Theatre scene, and notably I have experience self-teaching and designing using the CAD software Vectorworks for creating building designs for Theatre Auditoriums.
+
+\medskip
+
+From working at the Edinburgh Fringe as Technical Manager of Bedlam Fringe, I have developed good interpersonal skills, as I was partially responsible for communication with the 23 shows performing at the theatre. I was the primary contact to the companies for technical requirements, both sorting out anything in the pre-production before the festival, and any issues that happened during the festival. Communication within the management team was also important for the festival to run smoothly, and I kept in good contact with the Venue Manager, Programmer, and Front of House Manager all throughout the Fringe to ensure there were no problems.
+
+\medskip
+
+I hope my experience would be valuable, and thank you for looking at my application. I look forward to hearing from you.
+\medskip
+
+Sincerely,
+
+Leon Lee.
+\end{document}
